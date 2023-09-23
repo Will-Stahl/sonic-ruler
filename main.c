@@ -1,7 +1,6 @@
 #include "TM4C123GH6PM.h"
 #include "bsp.h"
-
-extern uint32_t counter;
+#include "4dig7seg_driver.h"
 
 int main() {
 
@@ -11,20 +10,19 @@ int main() {
     SCB->CPACR |= ((3UL << 20U)|(3UL << 22U));
 #endif
 
-    io_init();
+    io_init_7seg_4dig();
+    io_init_hcsr04();
     __ISB(); /* Instruction Synchronization Barrier */
     __DSB(); /* Data Memory Barrier */
 
-
-    SysTick->LOAD = SYS_CLOCK_HZ/5U - 1U;
-    SysTick->VAL  = 0U;  // clear
-    SysTick->CTRL = (1U << 2U) | (1U << 1U) | 1U;
-
     __enable_irq();
     uint16_t digit_place = 0;
+    start_timers();
     while (1) {
-        render_digit(digit_place, counter);
+        render_digit(digit_place);
         digit_place = (digit_place + 1) % NUM_DIGITS;
+        int delay = 10;  // not fixing the flickering
+        while (delay--);
     }
     //return 0;
 }
