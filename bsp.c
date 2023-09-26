@@ -40,9 +40,9 @@ void io_init_hcsr04() {
 }
 
 /* potential TODO's:
- * fix flickering
+ * fix flickering: probably because ISR is too long
  * improve accuracy; it's 20% over at dist of 150mm
- * deal with noisy value
+ * deal with noisy value, taking moving average
  * use button to switch to inches and cm display
  */
 
