@@ -6,7 +6,7 @@ Credit for `startup_tm4c_gnu.c`, `TM4C123GH6PM.h`, and `tm4c123gh6pm.lds` goes t
 ## Schematics
 ### Common cathode 4-digit 7-segment display pin connections:
 <p align="center">
-  <img src="img/4d7s_display_schematic.png" alt="4-digit 7-segment pins" width="75%"/>
+  <img src="img/4d7s_display_schematic.jpg" alt="4-digit 7-segment pins" width="75%"/>
 </p>
 Note that the above circuit assumes that only one digit is active at a time, i.e. that only one of pins 1, 2, 3, and 4 are low at one time. Multiple active digits may burn the circuit.
 
